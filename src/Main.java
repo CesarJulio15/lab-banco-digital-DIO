@@ -1,21 +1,24 @@
-
 public class Main {
+    public static void main(String[] args) {
+        // Criando cliente
+        Cliente venilton = new Cliente("Venilton");
 
-	public static void main(String[] args) {
-		Cliente venilton = new Cliente();
-		venilton.setNome("Venilton");
-		
-		Conta cc = new ContaCorrente(venilton);
-		Conta poupanca = new ContaPoupanca(venilton);
+        // Criando contas
+        ContaCorrente cc = new ContaCorrente(venilton);
+        ContaPoupanca poupanca = new ContaPoupanca(venilton);
 
-		cc.depositar(100);
-		cc.transferir(100, poupanca);
-		
-		cc.imprimirExtrato();
-		poupanca.imprimirExtrato();
+        // Operações
+        cc.depositar(100);               // Depósito na corrente
+        cc.transferir(100, poupanca);    // Transferência da corrente para poupança
 
-		cc.exibirHistorico();
-		poupanca.exibirHistorico();
-	}
+        // Imprimir extratos organizados
+        System.out.println("=== Extrato Conta Corrente ===");
+        cc.imprimirExtrato();
 
+        System.out.println("=== Extrato Conta Poupança ===");
+        poupanca.imprimirExtrato();
+
+		System.out.println("=== Fim do Extrato ===");
+    }
 }
+		
